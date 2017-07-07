@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "compression": "^1.6.2",
+    "css-loader": "^0.28.4",
+    "emotion": "^5.1.4",
     "firebase": "^4.1.2",
     "firebase-hackernews": "^2.9.0",
     "isomorphic-fetch": "^2.2.1",
@@ -28,9 +30,12 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^2.1.2",
     "globby": "^6.1.0",
     "load-json-file": "^2.0.0",
+    "raw-loader": "^0.5.1",
     "standard": "^10.0.2",
+    "style-loader": "^0.18.2",
     "webpack-bundle-analyzer": "^2.8.2",
     "workbox-build": "^1.0.1",
     "workbox-webpack-plugin": "^1.0.1"

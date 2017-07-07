@@ -1,29 +1,30 @@
+import styled from 'emotion/react'
+
+const ListItem = styled('li')({
+  margin: '10px 0',
+  listStyleType: 'none',
+  paddingLeft: 10,
+  display: 'flex',
+  marginTop: 5
+})
+
 export default ({ user }) =>
   <div>
     <ul>
       <h1>
         {user.id}
       </h1>
-      <li>
+      <ListItem>
         Created: {user.created}
-      </li>
-      <li>
+      </ListItem>
+      <ListItem>
         Karma: {user.karma}
-      </li>
-      <li>
+      </ListItem>
+      <ListItem>
         Delay: {user.delay}
-      </li>
-      <li>
+      </ListItem>
+      <ListItem>
         About: {user.about}
-      </li>
+      </ListItem>
     </ul>
-    <style jsx>{`
-      li {
-        margin: 10px, 0;
-        list-style-type: none;
-        padding-left: 10px;
-        display: flex;
-        margin-top: 5px;
-      }
-    `}</style>
   </div>

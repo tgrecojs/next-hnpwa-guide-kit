@@ -4,6 +4,34 @@ import Page from '../components/page'
 import Comment from '../components/comment'
 import fetchItem from '../lib/fetch-item'
 import fetchKids from '../lib/fetch-kids'
+import styled from 'emotion/react'
+
+const CommentPage = styled('div')`
+  padding: 20px 30px 20px 30px;
+    border-bottom: 1px solid #eee;
+  a {
+    color: #0e0e0e;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0e0e0e;
+    text-decoration: underline;
+  }
+  
+  .info a {
+    color: gray;
+    text-decoration: none;
+  }
+  
+  .info a:hover {
+    text-decoration: underline;
+  }
+  
+  .info {
+    font-size: 14px;
+  }
+`
 
 export default class extends React.Component {
   static async getInitialProps ({ query }) {
@@ -22,44 +50,16 @@ export default class extends React.Component {
     ))
 
     return <Page>
-      <div className='detail'>
+      <CommentPage>
         <h2><a href={item.url} target='_black'>{item.title}</a></h2>
         <div className='info'>
           {item.score} score | <Link
             href={`/user?id=${item.by}`}><a>{item.by}</a></Link>
         </div>
-      </div>
+      </CommentPage>
       <div>
         {comments}
       </div>
-      <style jsx>{`
-      .detail{
-        padding: 20px 30px 20px 30px;
-        border-bottom: 1px solid #eee;
-      }
-      .detail a {
-        color: #0e0e0e;
-        text-decoration: none;
-      }
-
-      .detail a:hover {
-        color: #0e0e0e;
-        text-decoration: underline;
-      }
-
-      .info a {
-        color: gray;
-        text-decoration: none;
-      }
-
-      .info a:hover {
-        text-decoration: underline;
-      }
-
-      .info {
-        font-size: 14px;
-      }
-    `}</style>
     </Page>
   }
 }

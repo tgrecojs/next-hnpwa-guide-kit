@@ -1,4 +1,5 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   webpack: async (config, { dev }) => {
