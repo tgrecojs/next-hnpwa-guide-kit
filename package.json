@@ -6,13 +6,13 @@
   },
   "scripts": {
     "dev": "next",
-    "lint": "xo",
-    "build:next": "chmod -R u+x node_modules/next/dist/bin && next build && node generate-sw.js",
+    "lint": "standard --fix",
+    "build:next": "next build && node generate-sw.js",
     "build": "npm run build:next --preact",
     "build:report": "npm run build:next --report && webpack-bundle-analyzer .next/stats.json",
     "start:next": "next start",
     "start": "NODE_ENV=production node server.js",
-    "deploy": "npm version patch && now --name=next-hnpwa --public"
+    "deploy": "npm version patch && now --name=next-emotion-hnpwa --public"
   },
   "dependencies": {
     "compression": "^1.6.2",
@@ -26,23 +26,32 @@
     "react-dom": "^15.6.0"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "express": "^4.15.3",
     "globby": "^6.1.0",
     "load-json-file": "^2.0.0",
+    "standard": "^10.0.2",
     "webpack-bundle-analyzer": "^2.8.2",
     "workbox-build": "^1.0.1",
-    "workbox-webpack-plugin": "^1.0.1",
-    "xo": "^0.18.2"
+    "workbox-webpack-plugin": "^1.0.1"
   },
-  "xo": {
-    "semicolon": false,
-    "env": {
-      "browser": true
-    },
-    "globals": [
-      "window",
-      "performance",
-      "firebase"
+  "eslintConfig": {
+    "extends": "standard",
+    "parser": "babel-eslint",
+    "rules": {
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ]
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/dist/",
+      "/node_modules/",
+      "/static/",
+      "/.next/"
     ]
   }
 }
